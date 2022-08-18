@@ -1,4 +1,4 @@
 ctypes
 numpy
 matplotlib
-skimage
+scikit-image
