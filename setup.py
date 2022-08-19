@@ -13,20 +13,20 @@ setup(
         "matplotlib",
         "scikit-image",
     ],
-},
-package_dir = {"": "pyVSNR"},
-packages = find_packages(where='pyVSNR'),
+    package_dir={"": "pyVSNR"},
+    packages=find_packages(where='pyVSNR'),
 
-description = "VSNR (Variational Stationary Noise Remover) algorithm in python",
+    description="VSNR (Variational Stationary Noise Remover) algorithm in "
+                "python",
 
-url = "https://github.com/CEA-MetroCarac/pyVSNR",
-author_email = "patrick.quemere@cea.fr",
-author = "Patrick Quéméré",
-keywords = "VSNR, noise reduction",
-classifiers = [
-                  'Programming Language :: Python :: 3.7',
-                  'License :: OSI Approved :: GPL-3.0 license',
-                  'Operating System :: Microsoft :: Windows',
-                  'Environment :: Web Environment',
-              ],
+    url="https://github.com/CEA-MetroCarac/pyVSNR",
+    author_email="patrick.quemere@cea.fr",
+    author="Patrick Quéméré",
+    keywords="VSNR, noise reduction",
+    classifiers=[
+        'Programming Language :: Python :: 3.7',
+        'License :: OSI Approved :: GPL-3.0 license',
+        'Operating System :: Microsoft :: Windows',
+        'Environment :: Console',
+    ],
 )
