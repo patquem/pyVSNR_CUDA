@@ -44,7 +44,7 @@ img_corr = vsnr2d(img, filters, nite=100)
 ...
 ```
 Some applicative examples are given in 
-[examples.py](pyVSNR/examples.py) and reproduced herafter. 
+[examples.py](pyVSNR/examples.py) and reproduced hereafter. 
 
 
 **gaussian noise removal example** :
