@@ -44,14 +44,14 @@ img_corr = vsnr2d(img, filters, nite=100)
 ...
 ```
 Some applicative examples are given in 
-[examples.py](pyVSNR/examples.py). 
+[examples.py](pyVSNR/examples.py) and reproduced herafter. 
 
 
-**guassian noise removal example** :
+**gaussian noise removal example** :
 
 ```python
-from pyVSNR.examples import ex_camera_guassian_noise 
-ex_camera_guassian_noise() 
+from pyVSNR.examples import ex_camera_gaussian_noise 
+ex_camera_gaussian_noise() 
 ```
 ![](pyVSNR/data/camera_gaussian_noise_comp.png)
  
