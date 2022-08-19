@@ -13,7 +13,7 @@ setup(
         "matplotlib",
         "scikit-image",
     ],
-    packages=['pyVSNR'],
+    packages=['pyVSNR', 'data'],
 
     description="VSNR (Variational Stationary Noise Remover) algorithm in "
                 "python",
