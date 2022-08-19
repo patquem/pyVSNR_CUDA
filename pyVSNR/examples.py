@@ -9,7 +9,7 @@ from skimage.io import imread, imsave
 
 from pyVSNR import vsnr2d
 
-DATA_PATH = os.path.join(__file__, "data")
+DATA_PATH = os.path.join(__file__, "..", "data")
 SAVE_IMG = False
 
 

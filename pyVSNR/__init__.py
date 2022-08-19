@@ -5,7 +5,7 @@ import os
 from ctypes import windll, POINTER, c_int, c_float
 import numpy as np
 
-PRECOMPILED_PATH = os.path.join(__file__, "precompiled")
+PRECOMPILED_PATH = os.path.join(__file__, "..", "precompiled")
 NBLOCKS = 1024
 
 

@@ -4,6 +4,7 @@ setup(
     name="pyVSNR",
     version='1.0.0',
     license='GPLv3',
+    setup_requires=['setuptools_scm'],
     include_package_data=True,
     zip_safe=False,
     python_requires='>=3.6',
