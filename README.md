@@ -1,7 +1,7 @@
 # pyVSNR
 VSNR (Variational Stationary Noise Remover) algorithm in python
 
-![](data/fib_sem_comp.png)
+![](pyVSNR/data/fib_sem_comp.png)
 
 ## Description
 
@@ -15,7 +15,7 @@ It completes the 2D-CPU/GPU port from MATLAB to python realized in
  
 ## Installation
 
-    $ pip install pyVSNR
+    $ pip install git+https://github.com/CEA-MetroCarac/pyVSNR.git
 
 ## Requirements
 
@@ -25,66 +25,62 @@ It completes the 2D-CPU/GPU port from MATLAB to python realized in
 
 ## Usage
 
-For a single image processing :
 
 ```python
 from pyVSNR import vsnr2d
 from skimage import io
 
 # read the image to correct
-img = io.imread('my_image.tif')
+img = io.imread('image.tif')
 
-# filters definition
-filter1 = {'name':'gabor', 'noise_level':20, 'sigma':(3, 40), 'theta':210}
-filter2 = {'name':'dirac', 'noise_level':10}
+# filters definition (Gabor and Dirac filters combination)
+filter1 = {'name':'Gabor', 'noise_level':20, 'sigma':(3, 40), 'theta':210}
+filter2 = {'name':'Dirac', 'noise_level':10}
 filters = [filter1, filter2]
 
 # image processing
 img_corr = vsnr2d(img, filters, nite=100)
+
 ...
 ```
 Some applicative examples are given in 
-[examples.py](./examples.py). 
+[examples.py](pyVSNR/examples.py). 
+
+
+**guassian noise removal example** :
+
+```python
+from pyVSNR.examples import ex_camera_guassian_noise 
+ex_camera_guassian_noise() 
+```
+![](pyVSNR/data/camera_gaussian_noise_comp.png)
  
 **stripes removal example** :
 
-    $ python
-    >>> from pyVSNR.examples import ex_camera_stripes 
-    >>> ex_camera_stripes() 
-
-![](data/camera_stripes_comp.png)
+```python
+from pyVSNR.examples import ex_camera_stripes 
+ex_camera_stripes() 
+```
+![](pyVSNR/data/camera_stripes_comp.png)
 
 **curtains removal example** :
 
-    $ python
-    >>> from pyVSNR.examples import ex_camera_curtains 
-    >>> ex_camera_curtains() 
-
-![](data/camera_curtains_comp.png)
+```python
+from pyVSNR.examples import ex_camera_curtains 
+ex_camera_curtains() 
+```
+![](pyVSNR/data/camera_curtains_comp.png)
 
 **curtains removal example on real image (FIB-SEM)** :
 
-    $ python
-    >>> from pyVSNR.examples import ex_fib_sem 
-    >>> ex_fib_sem() 
+```python
+from pyVSNR.examples import ex_fib_sem 
+ex_fib_sem() 
+```
+![](pyVSNR/data/fib_sem_comp.png)
 
-![](data/fib_sem_comp.png)
 
-
-## Developers information
-
-Before pushing your developments, check the unitests run correctly.
-
-    $ python -m unittest tests
-    camera_curtains... CGPU running time : 2.515625
-    camera_stripes... CGPU running time : 1.6875                                       
-    .                                                                      
-    ---------------------------------------------------------------------- 
-    Ran 2 tests in 5.006s                                                  
-                                                                           
-    OK                                                                     
-    
-## Authors information
+## Authors informations
 
 This is a port to python of the original code developed by Jean EYMERIE
  and Pierre WEISS.

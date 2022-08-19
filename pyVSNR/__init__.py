@@ -35,9 +35,9 @@ def vsnr2d(img, filters, nite=100, beta=1, nblocks=NBLOCKS):
     filters: list of dicts
         Dictionaries that contains filters definition.
         Example For a 'Dirac' filter:
-        - filter={'name':'dirac', 'noise_level':10}
+        - filter={'name':'Dirac', 'noise_level':10}
         Example For a 'Gabor' filter:
-        - filter={'name':'gabor', 'noise_level':5, 'sigma':(3, 40), 'theta':45}
+        - filter={'name':'Gabor', 'noise_level':5, 'sigma':(3, 40), 'theta':45}
     nite: int, optional
         Number of iterations in the denoising processing
     beta: float, optional
@@ -58,14 +58,14 @@ def vsnr2d(img, filters, nite=100, beta=1, nblocks=NBLOCKS):
     for filt in filters:
         name = filt['name']
         noise_level = filt['noise_level']
-        if name == 'dirac':
+        if name == 'Dirac':
             psis += [0, noise_level]
-        elif name == 'gabor':
+        elif name == 'Gabor':
             sigma = filt['sigma']
             theta = filt['theta']
             psis += [1, noise_level, sigma[0], sigma[1], theta]
         else:
-            raise IOError(f"filter name '{name}' should be 'dirac' or 'gabor'")
+            raise IOError(f"filter name '{name}' should be 'Dirac' or 'Gabor'")
 
     # flattened arrays and corresponding pointers definition
     psis = np.asarray(psis).flatten()
