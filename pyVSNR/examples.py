@@ -9,7 +9,6 @@ from skimage.io import imread, imsave
 
 from pyVSNR import vsnr2d
 
-DATA_DIR = os.path.join(__file__, "..", "..", "data")
 SAVE_IMG = False
 
 
@@ -18,8 +17,8 @@ def ex_camera_stripes(noise_level=0.5):
     Example of stripes removal from 'camera' image
     """
     img_label = "camera_stripes"
-    img = imread(os.path.join(DATA_DIR, "camera_stripes.tif"))
-    img_ref = imread(os.path.join(DATA_DIR, "camera.tif"))
+    img = imread(os.path.join("data", "camera_stripes.tif"))
+    img_ref = imread(os.path.join("data", "camera.tif"))
 
     # filter definition (1 dirac filter)
     filters = [{'name': 'dirac', 'noise_level': noise_level}]
@@ -32,8 +31,8 @@ def ex_camera_curtains(noise_level=20, sigma=(3, 40), theta=0):
     Example of curtains removal from 'camera' image
     """
     img_label = "camera_curtains"
-    img = imread(os.path.join(DATA_DIR, "camera_curtains.tif"))
-    img_ref = imread(os.path.join(DATA_DIR, "camera.tif"))
+    img = imread(os.path.join("data", "camera_curtains.tif"))
+    img_ref = imread(os.path.join("data", "camera.tif"))
 
     # filter definition (1 gabor filter)
     filters = [{'name': 'gabor',
@@ -47,7 +46,7 @@ def ex_fib_sem(noise_level=30, sigma=(1, 30), theta=358):
     Example of curtains removal from a real FIB-SEM image
     """
     img_label = "fib_sem"
-    img = imread(os.path.join(DATA_DIR, "fib_sem.tif"))
+    img = imread(os.path.join("data", "fib_sem.tif"))
     img_ref = None
 
     # filter definition (1 gabor filter)

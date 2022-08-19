@@ -9,7 +9,7 @@ NBLOCKS = 1024
 
 def get_vsnr2d():
     """ Load the 'cuda' function from the dedicated .dll library"""
-    dll = windll.LoadLibrary("../precompiled/libvsnr2d.dll")
+    dll = windll.LoadLibrary("./precompiled/libvsnr2d.dll")
     func = dll.VSNR_2D_FIJI_GPU
     func.argtypes = [POINTER(c_float), c_int, POINTER(c_float),
                      c_int, c_int, c_int,
