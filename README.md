@@ -19,7 +19,6 @@ It completes the 2D-CPU/GPU port from MATLAB to python realized in
 
 ## Requirements
 
-- ctypes
 - numpy
 - matplotlib, skimage (for examples execution only)
 

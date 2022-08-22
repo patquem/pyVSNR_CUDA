@@ -9,7 +9,6 @@ setup(
     zip_safe=False,
     python_requires='>=3.6',
     install_requires=[
-        "ctypes",
         "numpy",
         "matplotlib",
         "scikit-image",

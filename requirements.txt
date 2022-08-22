@@ -1,4 +1,3 @@
-ctypes
 numpy
 matplotlib
 scikit-image
