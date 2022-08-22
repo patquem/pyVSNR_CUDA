@@ -29,7 +29,7 @@ def ex_camera_gaussian_noise(noise_level=0.32):
     return camera_process('camera_gaussian_noise', filters)
 
 
-def ex_camera_stripes(noise_level=100, sigma=(0.5, 1000), theta=90):
+def ex_camera_stripes(noise_level=100, sigma=(1000, 0.1), theta=0):
     """
     Example of stripes removal from 'camera' image
     """
@@ -68,7 +68,7 @@ def img_process(img_label, psis, img, img_ref):
 
     # vsnr processing
     t0 = time.process_time()
-    img_corr = vsnr2d(img, psis, beta=1., nite=100)
+    img_corr = vsnr2d(img, psis, nite=20)
     print("CGPU running time :", time.process_time() - t0)
 
     # image renormalization

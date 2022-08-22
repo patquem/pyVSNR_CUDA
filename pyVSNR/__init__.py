@@ -6,7 +6,6 @@ from ctypes import windll, POINTER, c_int, c_float
 import numpy as np
 
 PRECOMPILED_PATH = os.path.join(__file__, "..", "precompiled")
-NBLOCKS = 1024
 
 
 def get_vsnr2d():
@@ -19,12 +18,18 @@ def get_vsnr2d():
     return func
 
 
-def vsnr2d(img, filters, nite=100, beta=1, nblocks=NBLOCKS):
-    """
+def get_nblocks():
+    """ Get the number of maximum threads per block library"""
+    dll = windll.LoadLibrary(os.path.join(PRECOMPILED_PATH, "libvsnr2d.dll"))
+    return dll.getMaxBlocks()
+
+
+def vsnr2d(img, filters, nite=20, beta=10., nblocks='auto'):
+    r"""
     Calculate the corrected image using the 2D-VSNR algorithm in libvsnr2d.dll
 
     .. note:
-    To ease code comparison with original coding, most of the variable names
+    To ease code comparison with the original onde, most of the variable names
     have been kept as nearly as possible during the code transcription.
     Accordingly, PEP8 formatting compatibility is not always respected.
 
@@ -38,12 +43,14 @@ def vsnr2d(img, filters, nite=100, beta=1, nblocks=NBLOCKS):
         - filter={'name':'Dirac', 'noise_level':10}
         Example For a 'Gabor' filter:
         - filter={'name':'Gabor', 'noise_level':5, 'sigma':(3, 40), 'theta':45}
+        For further informations, see :
+        https://www.math.univ-toulouse.fr/~weiss/Codes/VSNR/Documentation_VSNR_V2_Fiji.pdf
     nite: int, optional
         Number of iterations in the denoising processing
     beta: float, optional
-        Undefined parameters in the original code (no effect on the results ?)
-    nblocks: int, optional
-        Maximum number of threads per block to work with
+        Beta parameters
+    nblocks: 'auto' or int, optional
+        Number of threads per block to work with
 
     Returns
     -------
@@ -75,6 +82,13 @@ def vsnr2d(img, filters, nite=100, beta=1, nblocks=NBLOCKS):
     psis_p = (c_float * len(psis))(*psis)
     u0_p = (c_float * len(u0))(*u0)
     u_p = (c_float * len(u))(*u)
+
+    # 'auto' nblocks definition
+    nblocks_max = get_nblocks()
+    if nblocks == 'auto':
+        nblocks = nblocks_max
+    else:
+        nblocks = max(nblocks_max, nblocks)
 
     # calculation
     vmax = u0.max()
