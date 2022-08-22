@@ -47,35 +47,47 @@ Some applicative examples are given in
 [examples.py](pyVSNR/examples.py) and reproduced hereafter. 
 
 
-**gaussian noise removal example** :
+**Gaussian noise removal example** :
 
 ```python
 from pyVSNR.examples import ex_camera_gaussian_noise 
+import matplotlib.pyplot as plt
+
 ex_camera_gaussian_noise() 
+plt.show()
 ```
 ![](pyVSNR/data/camera_gaussian_noise_comp.png)
  
-**stripes removal example** :
+**Stripes removal example** :
 
 ```python
-from pyVSNR.examples import ex_camera_stripes 
-ex_camera_stripes() 
+from pyVSNR.examples import ex_camera_stripes
+import matplotlib.pyplot as plt
+ 
+ex_camera_stripes()
+plt.show()
 ```
 ![](pyVSNR/data/camera_stripes_comp.png)
 
-**curtains removal example** :
+**Curtains removal example** :
 
 ```python
-from pyVSNR.examples import ex_camera_curtains 
-ex_camera_curtains() 
+from pyVSNR.examples import ex_camera_curtains
+import matplotlib.pyplot as plt
+ 
+ex_camera_curtains()
+plt.show() 
 ```
 ![](pyVSNR/data/camera_curtains_comp.png)
 
-**curtains removal example on real image (FIB-SEM)** :
+**Curtains removal example on real image (FIB-SEM)** :
 
 ```python
-from pyVSNR.examples import ex_fib_sem 
-ex_fib_sem() 
+from pyVSNR.examples import ex_fib_sem
+import matplotlib.pyplot as plt
+
+ex_fib_sem()
+plt.show() 
 ```
 ![](pyVSNR/data/fib_sem_comp.png)
 
