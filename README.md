@@ -38,7 +38,7 @@ filter2 = {'name':'Dirac', 'noise_level':10}
 filters = [filter1, filter2]
 
 # image processing
-img_corr = vsnr2d(img, filters, nite=100)
+img_corr = vsnr2d(img, filters, nite=20, nblocks='auto')
 
 ...
 ```
