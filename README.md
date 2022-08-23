@@ -46,9 +46,8 @@ img_corr = vsnr2d(img, filters, nite=20, nblocks='auto')
 
 ...
 ```
-For more details concerning usage and parameters, please refer to the Pierre
- Weiss website : 
-  [https://www.math.univ-toulouse.fr/~weiss/PageCodes.html](https://www.math.univ-toulouse.fr/~weiss/PageCodes.html)
+For more details concerning usage and parameters, refer to the Pierre Weiss 
+ [website](https://www.math.univ-toulouse.fr/~weiss/PageCodes.html).
  
 ## Examples
 
