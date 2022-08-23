@@ -5,8 +5,8 @@ VSNR (Variational Stationary Noise Remover) algorithm in python
 
 ## Description
 
-This repository contains the sources of the 2D-GPU based denoising code of
- the VSNR algorithm obtained from the cuda implementation in 
+This repository contains the python sources of the 2D-GPU based denoising
+ code of the VSNR algorithm issued from the CUDA implementation given in 
  [https://github.com/pierre-weiss/VSNR_2D-3D_GPU](https://github.com/pierre-weiss/VSNR_2D-3D_GPU).
 
 It completes the 2D-CPU/GPU port from MATLAB to python realized in
@@ -16,6 +16,10 @@ It completes the 2D-CPU/GPU port from MATLAB to python realized in
 ## Installation
 
     $ pip install git+https://github.com/CEA-MetroCarac/pyVSNR.git
+
+In case of problem during CUDA execution (typically 'access memory error'), 
+it may be necessary to **recompile** the .dll.
+See the [README.txt](pyVSNR/README.txt) file for more details.
 
 ## Requirements
 
@@ -42,8 +46,15 @@ img_corr = vsnr2d(img, filters, nite=20, nblocks='auto')
 
 ...
 ```
+For more details concerning usage and parameters, please refer to the Pierre
+ Weiss website : 
+  [https://www.math.univ-toulouse.fr/~weiss/PageCodes.html](https://www.math.univ-toulouse.fr/~weiss/PageCodes.html)
+ 
+## Examples
+
 Some applicative examples are given in 
-[examples.py](pyVSNR/examples.py) and reproduced hereafter. 
+[examples.py](pyVSNR/examples.py). Operating mode and results are
+ reproduced hereafter. 
 
 
 **Gaussian noise removal example** :
