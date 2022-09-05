@@ -24,7 +24,7 @@ See the [README.txt](pyVSNR/README.txt) file for more details.
 ## Requirements
 
 - numpy
-- matplotlib, skimage (for examples execution only)
+- matplotlib, skimage (for examples and tests execution only)
 
 ## Usage
 
@@ -60,7 +60,7 @@ Some applicative examples are given in
 
 ```python
 from pyVSNR.examples import ex_camera_gaussian_noise 
-ex_camera_gaussian_noise(show_plot=True) 
+ex_camera_gaussian_noise() 
 ```
 ![](pyVSNR/data/camera_gaussian_noise_comp.png)
  
@@ -68,7 +68,7 @@ ex_camera_gaussian_noise(show_plot=True)
 
 ```python
 from pyVSNR.examples import ex_camera_stripes 
-ex_camera_stripes(show_plot=True)
+ex_camera_stripes()
 ```
 ![](pyVSNR/data/camera_stripes_comp.png)
 
@@ -76,7 +76,7 @@ ex_camera_stripes(show_plot=True)
 
 ```python
 from pyVSNR.examples import ex_camera_curtains 
-ex_camera_curtains(show_plot=True)
+ex_camera_curtains()
 ```
 ![](pyVSNR/data/camera_curtains_comp.png)
 
