@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pyVSNR",
-    version='1.0.0',
+    version='1.0.2',
     license='GPLv3',
     setup_requires=['setuptools_scm'],
     include_package_data=True,

@@ -79,9 +79,9 @@ def vsnr2d(img, filters, nite=20, beta=10., nblocks='auto'):
     u0 = img.flatten()
     u = np.zeros_like(u0)
 
-    psis_p = (c_float * len(psis))(*psis)
-    u0_p = (c_float * len(u0))(*u0)
-    u_p = (c_float * len(u))(*u)
+    psis_ = (c_float * len(psis))(*psis)
+    u0_ = (c_float * len(u0))(*u0)
+    u_ = (c_float * len(u))(*u)
 
     # 'auto' nblocks definition
     nblocks_max = get_nblocks()
@@ -92,9 +92,16 @@ def vsnr2d(img, filters, nite=20, beta=10., nblocks='auto'):
 
     # calculation
     vmax = u0.max()
-    get_vsnr2d()(psis_p, length, u0_p, n0, n1, nite, beta, u_p, nblocks, vmax)
+    try:
+        get_vsnr2d()(psis_, length, u0_, n0, n1, nite, beta, u_, nblocks, vmax)
+    except OSError:
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        msg = '\n!!! Problem when running the cuda libvsnr2d.dll !!!\n'
+        msg += 'You probably need to recompile the .dll\n'
+        msg += f'See the README.txt for compilation instructions in {dir_path}'
+        print(msg)
 
     # reshaping
-    img_corr = np.array(u_p).reshape(n0, n1).astype(float)
+    img_corr = np.array(u_).reshape(n0, n1).astype(float)
 
     return img_corr
