@@ -1,5 +1,7 @@
 
-<span style="color:red"> This repository has been replaced by **pyvsnr** in: https://github.com/CEA-MetroCarac/pyvnsr </span>
+```diff
+- This repository has been replaced by 'pyvsnr' in: https://github.com/CEA-MetroCarac/pyvnsr
+```
 
 
 
