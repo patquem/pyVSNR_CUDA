@@ -1,3 +1,8 @@
+
+<span style="color:red"> This repository has been replaced by **pyvsnr** in: https://github.com/CEA-MetroCarac/pyvnsr </span>
+
+
+
 # pyVSNR
 VSNR (Variational Stationary Noise Remover) algorithm in python
 
